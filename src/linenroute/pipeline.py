@@ -63,6 +63,7 @@ def rows_for(plan, scored, vectors):
             driver = ' · '.join(f'{amount:+.2f}' for amount in point.contributions)
         interval = ('–' if job.lower is None else f'{job.lower:.2f}–{job.upper:.2f}')
         order.append({'key': job.key, 'zone': job.cohort, 'estimate': job.estimate, 'interval': interval,
+                      'lower': job.lower, 'upper': job.upper,
                       'state': job.state, 'cost': job.cost, 'reason': job.reason, 'evidence': job.summary,
                       'drivers': driver, 'missing': len(point.missing), 'hits': list(job.rule_hits),
                       'measurements': dict(zip(('checked_out', 'on_hand', 'truck_eta', 'towel_issue', 'wash_reject', 'concert_rooms'), point.input_values, strict=True)),

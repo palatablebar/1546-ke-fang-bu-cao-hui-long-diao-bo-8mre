@@ -1,9 +1,18 @@
-from .operating_ledger import operating_ledger
 from collections import Counter, defaultdict
 from math import exp, isfinite
 
 from .contracts import RuleNotice, Job, Plan, Policy, RISK_CUTOFF
 from .constraints import WorkOrder, apply_laundry_transfer
+from .operating_ledger import (
+    operating_ledger,
+    touch_cage_count,
+    read_upper,
+    UPPER_LIMIT,
+    GAP_UPPER_LIMIT,
+)
+
+allocate_cages = operating_ledger
+plan_cage_loans = operating_ledger
 
 
 def measures(raw):
